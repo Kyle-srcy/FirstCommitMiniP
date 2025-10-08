@@ -45,18 +45,35 @@ body {
 }
 
 .nav a {
+    position: relative;
     font-size: 18px;
     color: #ddd;
     margin: 0 15px;
     font-weight: 500;
-    border-bottom: 3px solid transparent;
-    transition: 0.3s ease;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #ff00ff, #cc00cc, #800080, #4b004b);
+    background-size: 200% 100%;
+    transition: width 0.4s ease, background-position 0.4s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+    width: 100%;
 }
 
 .nav a:hover,
 .nav a.active {
     color: #fff;
-    border-bottom: 3px solid magenta;
 }
 
 
