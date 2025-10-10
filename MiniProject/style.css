@@ -1,347 +1,340 @@
-*{
+* { /*  Global*/
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    text-decoration: none;
-    list-style: none;
 }
 
-body {
+body {  /*  Background Design*/
     background: url("images/coding.webp") no-repeat center center fixed;
     background-size: cover;
     color: white;
     overflow-x: hidden;
 }
 
-.head {
+.dashboard {    /*  Dashboard*/
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 25px 10%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(12px);
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 70px;
+    background: rgba(255, 0, 150, 0.1);
+    border: 1px solid rgba(255, 0, 150, 0.5);
+    box-shadow: 0 0 15px black;
+    border-radius: 20px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    justify-content: space-between;
+    padding: 0 50px;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
 }
 
-.logo {
-    font-size: 28px;
+.dashboard.minimized {  /*  Click to make this small*/
+    height: 70px;
+    width: 400px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.dashboard .toggle-btn {    /*  for buttons*/
+    font-size: 30px;
     color: white;
-    font-weight: 600;
-    transition: 0.3s ease;
+    margin-bottom: 5px;
+    cursor: pointer;
+    align-items: center;
+    transition: transform 0.3s;
 }
 
-.logo span {
-    color: magenta;
+.dashboard .toggle-btn:hover{   /*  Hovering*/
+    color: black;
 }
 
-.logo:hover {
-    text-shadow: 0 0 25px magenta, 0 0 50px magenta;
-    transform: scale(1.05);
+.dashboard.minimized .toggle-btn {  /*  Click to Rotate*/
+    transform: rotate(180deg);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    transition: all 0.4s ease;
+}
+
+.dashboard.minimized .nav span {
+    display: none;
 }
 
 .nav a {
     position: relative;
-    font-size: 18px;
-    color: #ddd;
-    margin: 0 15px;
-    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 17px;
+    transition: 0.3s;
 }
 
-.nav a::after {
+.nav a::after {     /*  When Hovered it will give underline effect */
     content: '';
     position: absolute;
     left: 0;
-    bottom: -3px;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(135deg, #ff00ff, #cc00cc, #800080, #4b004b);
-    background-size: 200% 100%;
-    transition: width 0.4s ease, background-position 0.4s ease;
+    bottom: -3px; /* distance from text */
+    width: 0%;
+    height: 2px; /* thickness of the line */
+    background: white;
+    transition: width 0.3s ease;
 }
 
-.nav a:hover::after,
-.nav a.active::after {
+/* On hover, animate the line */
+.nav a:hover::after {
     width: 100%;
 }
 
-.nav a:hover,
-.nav a.active {
-    color: #fff;
+.nav a:hover {
+    color: black;
+    text-shadow: 0 0 10px black;
 }
 
-
-.contact {
-    padding: 10px 25px;
-    background: magenta;
-    color: white;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-
-.contact:hover {
-    background-color: white;
-    color: magenta;
-    box-shadow: 0 0 25px magenta;
+.nav a i {
+    font-size: 20px;
 }
 
 .home {
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 6em;
-    padding: 150px 10% 0;
-    flex-wrap: wrap;
-}
-.wave {
-    display: inline-block;
-    transform-origin: 70% 70%;
-    animation: waveHand 1.5s infinite;
-}
-
-@keyframes waveHand {
-    0% { transform: rotate(0deg); }
-    15% { transform: rotate(14deg); }
-    30% { transform: rotate(-8deg); }
-    45% { transform: rotate(14deg); }
-    60% { transform: rotate(-4deg); }
-    75% { transform: rotate(10deg); }
-    100% { transform: rotate(0deg); }
-}
-
-.hoco {
-    max-width: 600px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    padding: 25px;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    animation: fadeInUp 1s ease forwards;
-    margin-left: 50px;
-    
-}
-
-.hoco h3 {
-    font-size: 40px;
-    font-weight: 600;
-}
-
-.hoco h1 {
-    font-size: 50px;
-    line-height: 1.2;
-    margin-top: 10px;
-}
-
-.name {
-    color: magenta;
-}
-
-.ctu {
-    color: white;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.ctu:hover {
-    color: magenta;
-    text-shadow: 0 0 10px magenta;
-}
-
-.type {
-    font-size: 20px;
-    font-weight: 600;
-    margin: 30px 0 0 0;
-    color: white;
-    border-right: 3px solid magenta;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    text-align: center;
-    animation: typing 4s steps(30, end) forwards, blink 0.6s infinite;
-}
-
-@keyframes typing {
-    from { width: 0; }
-    to { width: 540px; }
-}
-
-@keyframes blink {
-    50% { border-color: transparent; }
-}
-
-.para{
-    margin-top: 20px; 
-    font-size: 17px; 
-    color: #fff; 
-    line-height: 1.5;
-    text-align: justify;
-}
-
-.img1 img {
-    max-width: 320px;
-    height: auto;
-    border-radius: 50%;
-    border: 4px solid magenta;
-    box-shadow: 0 0 25px magenta;
-    animation: glow 1s infinite ease-in-out, fadeInImage 1.2s ease forwards;
-    opacity: 0;
-}
-
-@keyframes glow {
-    0%, 100% { box-shadow: 0 0 20px magenta; }
-    50% { box-shadow: 0 0 40px magenta; }
-}
-
-@keyframes fadeInImage {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.socials {
-    margin-top: 20px;
-}
-
-.socials a {
-    font-size: 28px;
-    color: white;
-    margin-right: 18px;
-    transition: 0.35s ease;
-}
-
-.socials a i {
-    display: inline-block;
-    transition: all 0.5s ease;
-    color: white;
-    margin: 30px 0 0 0;
-    animation: float 3s ease-in-out infinite, gradientMove 5s ease infinite;
-}
-
-@keyframes float { /* Para lihok sa icons */
-    0% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-5px) scale(1.05); }
-    100% { transform: translateY(0) scale(1); }
-}
-@keyframes gradientMove { /* paglihok sa color gradient sa icons */
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-@keyframes pulseGlow {  /* Ang icon mo glow ug mo-dako gamay */
-    0%, 100% { transform: scale(1.2); }
-    50% { transform: scale(1.3); }
-}
-
-.socials a[title="Facebook"]:hover i {
-    background: linear-gradient(120deg, #0d8cf1, #1877f2, #00c6ff);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientMove 3s ease infinite;
-    text-shadow: 0 0 8px rgba(24,119,242,0.7),
-                 0 0 16px rgba(0,170,255,0.7),
-                 0 0 24px rgba(0,198,255,0.7);
-    transform: scale(1.25);
-    filter: brightness(1.3);
-}
-
-.socials a[title="Message me on Messenger"]:hover i {
-    background: linear-gradient(120deg, #0099ff, #a033ff, #ff5280, #ff7061);
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientMove 3s ease infinite;
-    text-shadow: 0 0 10px rgba(160,51,255,0.8),
-                 0 0 20px rgba(255,82,128,0.9),
-                 0 0 35px rgba(255,112,97,0.9);
-    transform: scale(1.25);
-    filter: brightness(1.4);
-}
-
-.socials a[title="Send Email via Gmail"]:hover i {
-    background: linear-gradient(135deg, #ea4335, #fbbc05, #34a853, #4285f4);
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientMove 4s ease infinite;
-    text-shadow: 0 0 12px rgba(234,67,53,0.9),
-                 0 0 20px rgba(251,188,5,0.9),
-                 0 0 30px rgba(66,133,244,0.8);
-    transform: scale(1.25);
-    filter: brightness(1.4);
-}
-
-.socials a[title="Connect on LinkedIn"]:hover i {
-    background: linear-gradient(135deg, #0a66c2, #00a0dc, #0077b5);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientMove 3s ease infinite;
-    text-shadow: 0 0 12px rgba(10,102,194,0.9),
-                 0 0 20px rgba(0,119,181,0.9),
-                 0 0 30px rgba(0,160,220,0.8);
-    transform: scale(1.25);
-    filter: brightness(1.3);
-}
-
-.socials a[title="Message me on Instagram"]:hover i {
-    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4, #ffcc70);
-    background-size: 500% 500%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientMove 4s ease infinite;
-    text-shadow: 0 0 12px rgba(221,42,123,0.9),
-                 0 0 25px rgba(129,52,175,0.9),
-                 0 0 35px rgba(255,204,112,0.8);
-    transform: scale(1.25);
-    filter: brightness(1.4);
-}
-
-.socials a:hover i {
-    transition: all 0.35s ease;
-    cursor: pointer;
-}
-@media (max-width:1200px){
-    .hoco{margin-left: 40px;}
-}
-@media (max-width: 1024px) {
-
-.home {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    gap: 3em;
-}
-.hoco{
-    margin-left: 0;
+    padding: 100px 20px 60px;
 }
 
-.hoco h1 {
-    font-size: 42px;
+.content-container {
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    border:black;
+    box-shadow: black;
+    padding: 40px 20px;
+    border-radius: 20px;
+    display: inline-block; /* shrinks to fit content */
+    text-align: center;
 }
 
-.img1 img {
-    max-width: 250px;
+.content-container .content h1,
+.content-container .content p,      /* Change text color to black*/
+.content-container .content h4 {
+    color: white; /* Change to black if needed */
 }
 
-.head {
-    padding: 20px 5%;
+.content-container {    /*  Shadow of the text*/
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.name-glow {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 0 8px #000, 0 0 15px #000;
+}
+
+.tagline { 
+    font-size: 1.2rem; 
+    margin-top: 10px; 
+} 
+
+.desc { 
+    margin-top: 15px; 
+    max-width: 700px; 
+    color: #ddd; 
+    text-align: center; 
+    line-height: 1.6; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-glow {     /*  Contact Button*/
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: rgba(255, 0, 150, 0.2);
+    border: 2px solid magenta;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 150, 0.3);
+}
+
+.btn-glow i {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Contact Arrow Animate */
+.btn-glow:hover i {
+    animation: arrowMove 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes arrowMove {
+    0% {
+        transform: translateY(0);
+  }
+    100% {
+        transform: translateY(8px);
   }
 }
 
-@keyframes fadeInUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+.btn-glow:hover i {
+    transform: translateY(5px);
+}
+
+.btn-glow:hover {
+    background: magenta;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px magenta, 0 0 50px magenta;
+}
+
+/*  Moving icons*/
+.socials { 
+    margin-top: 20px; 
+} 
+
+.socials a { 
+    font-size: 28px; 
+    color: white; 
+    margin-right: 18px; 
+    transition: 0.35s ease; 
+} 
+
+.socials a i { 
+    display: inline-block; 
+    transition: all 0.5s ease; 
+    color: white; 
+    margin: 30px 0 0 0; 
+    animation: float 3s ease-in-out infinite, gradientMove 5s ease infinite; 
+
+} 
+
+@keyframes float { /* Para lihok sa icons */ 
+    0% { transform: translateY(0) scale(1); } 
+    50% { transform: translateY(-5px) scale(1.05); } 
+    100% { transform: translateY(0) scale(1); } 
+} 
+
+@keyframes gradientMove { /* paglihok sa color gradient sa icons */ 
+    0% { background-position: 0% 50%; } 
+    50% { background-position: 100% 50%; } 
+    100% { background-position: 0% 50%; } 
+} 
+
+@keyframes pulseGlow { /* Ang icon mo glow ug mo-dako gamay */ 
+    0%, 100% { transform: scale(1.2); } 
+    50% { transform: scale(1.3); } 
+} 
+
+.socials a[title="Facebook"]:hover i { 
+    background: linear-gradient(120deg, #0d8cf1, #1877f2, #00c6ff); 
+    background-size: 300% 300%; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    animation: gradientMove 3s ease infinite; 
+    text-shadow: 0 0 8px rgba(24,119,242,0.7), 
+                 0 0 16px rgba(0,170,255,0.7), 
+                 0 0 24px rgba(0,198,255,0.7); 
+    transform: scale(1.25); 
+    filter: brightness(1.3); 
+} 
+
+.socials a[title="Messenger"]:hover i { 
+    background: linear-gradient(120deg, #0099ff, #a033ff, #ff5280, #ff7061); 
+    background-size: 400% 400%; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    animation: gradientMove 3s ease infinite; 
+    text-shadow: 0 0 10px rgba(160,51,255,0.8), 
+                 0 0 20px rgba(255,82,128,0.9), 
+                 0 0 35px rgba(255,112,97,0.9); 
+    transform: scale(1.25); 
+    filter: brightness(1.4); 
+} 
+
+.socials a[title="Gmail"]:hover i { 
+    background: linear-gradient(135deg, #ea4335, #fbbc05, #34a853, #4285f4); 
+    background-size: 400% 400%; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    animation: gradientMove 4s ease infinite; 
+    text-shadow: 0 0 12px rgba(234,67,53,0.9), 
+                 0 0 20px rgba(251,188,5,0.9), 
+                 0 0 30px rgba(66,133,244,0.8); 
+    transform: scale(1.25); 
+    filter: brightness(1.4); 
+} 
+
+.socials a[title="LinkedIn"]:hover i { 
+    background: linear-gradient(135deg, #0a66c2, #00a0dc, #0077b5); 
+    background-size: 300% 300%; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    animation: gradientMove 3s ease infinite; 
+    text-shadow: 0 0 12px rgba(10,102,194,0.9), 
+                 0 0 20px rgba(0,119,181,0.9), 
+                0 0 30px rgba(0,160,220,0.8); 
+    transform: scale(1.25); 
+    filter: brightness(1.3); 
+} 
+
+.socials a[title="Instagram"]:hover i { 
+    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4, #ffcc70); 
+    background-size: 500% 500%; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    animation: gradientMove 4s ease infinite; 
+    text-shadow: 0 0 12px rgba(221,42,123,0.9), 
+                 0 0 25px rgba(129,52,175,0.9), 
+                 0 0 35px rgba(255,204,112,0.8); 
+    transform: scale(1.25); 
+    filter: brightness(1.4); 
+} 
+
+.socials a:hover i { 
+    transition: all 0.35s ease; 
+    cursor: pointer; 
+} 
+
+@media (max-width:1200px){ 
+    .hoco{margin-left: 40px;} 
+} 
+
+@media (max-width: 1024px) { 
+    .home { flex-direction: column; text-align: center; gap: 3em; } 
+    .hoco{ margin-left: 0; } 
+    .hoco h1 { font-size: 42px; } 
+    .img1 img { max-width: 250px; } 
+    .head { padding: 20px 5%; } 
+} 
+
+@keyframes fadeInUp { 
+    from { transform: translateY(30px); opacity: 0; } 
+    to { transform: translateY(0); opacity: 1; } 
+}
+/* Footer */
+.footer {
+    width: 100%;
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,0,184,0.5);
+    box-shadow: 0 -0 15px rgba(255,0,184,0.3);
+    position: relative;
+    z-index: 50;
 }
