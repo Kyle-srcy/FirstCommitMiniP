@@ -27,8 +27,8 @@ darkToggle.addEventListener('click', () => {
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
-/*    For typing effect on my DESC    */
 
+/*    For typing effect on my DESC    */
 const text = document.getElementById('typing').textContent;
 document.getElementById('typing').textContent = '';
 
@@ -37,7 +37,7 @@ function typeLetter() {
     if (i < text.length) {
         document.getElementById('typing').textContent += text.charAt(i);
         i++;
-        setTimeout(typeLetter, 20); // 50ms per letter, adjust speed here
+        setTimeout(typeLetter, 20); // 20ms per letter, adjust speed here
     }
 }
 

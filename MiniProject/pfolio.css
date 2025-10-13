@@ -47,6 +47,8 @@ html{
     font-size: 30px;
     color: white;
     margin-bottom: 5px;
+    display: flex;
+    margin-right: 10px;
     cursor: pointer;
     align-items: center;
     transition: transform 0.3s;
@@ -226,6 +228,8 @@ body.dark-mode .intro {
     overflow: hidden;
     width: 0;
     text-align: center;
+    color: black; /* hide the fill */
+    -webkit-text-stroke: 1px white; /* stroke color & thickness */
     animation: typing 4s steps(30, end) forwards, blink 0.9s infinite;
 }
 
@@ -239,30 +243,30 @@ body.dark-mode .intro {
 }
 
 .desc {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1rem;
-  line-height: 1.8;
-  max-width: 700px;
-  margin: 20px auto 0 auto;
-  text-align: justify;
-  letter-spacing: 0.5px;
-  text-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
-  min-height: 6em; /* keeps space so it doesn’t jump while typing */
-   position: relative; /* needed for cursor */
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 20px auto 0 auto;
+    text-align: justify;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
+    min-height: 6em; /* keeps space so it doesn’t jump while typing */
+    position: relative; /* needed for cursor */
 }
 
 /* blinking cursor */
 .desc::after {
-  content: '|';
-  position: absolute;
-  right: 50; /* end of paragraph */
-  animation: blinks 0.8s infinite;
-  color: #ff00ff;
+    content: '_';
+    position: absolute;
+    right: 50; /* end of paragraph */
+    animation: blinks 0.9s infinite;
+    color: #ff00ff;
 }
 
 @keyframes blinks {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
 }
 
 
