@@ -1,0 +1,323 @@
+* { /*  Global*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {  /*  Background Design*/
+    background: url("images/coding.webp") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.dashboard {    /*  Dashboard*/
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 70px;
+    background: rgba(255, 0, 150, 0.1);
+    border: 1px solid rgba(255, 0, 150, 0.5);
+    box-shadow: 0 0 15px black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.dashboard.minimized {  /*  Click to make this small*/
+    height: 70px;
+    width: 400px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.dashboard .toggle-btn {    /*  for buttons*/
+    font-size: 30px;
+    color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.dashboard .toggle-btn:hover{   /*  Hovering*/
+    color: black;
+}
+
+.dashboard.minimized .toggle-btn {  /*  Click to Rotate*/
+    transform: rotate(180deg);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    transition: all 0.4s ease;
+}
+
+.dashboard.minimized .nav span {
+    display: none;
+}
+
+.nav a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.nav a::after {     /*  When Hovered it will give underline effect */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* distance from text */
+    width: 0%;
+    height: 2px; /* thickness of the line */
+    background: white;
+    transition: width 0.3s ease;
+}
+
+/* On hover, animate the line */
+.nav a:hover::after {
+    width: 100%;
+}
+
+.nav a:hover {
+    color: black;
+    text-shadow: 0 0 10px black;
+}
+
+.nav a i {
+    font-size: 20px;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 6em;
+    padding: 150px 10% 0;
+    flex-wrap: wrap;
+}
+
+
+/* === Default Frosted Glass (Light Mode) === */
+.intro {
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.30); /* more visible frosted white */
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-radius: 20px;
+    color: #fff;
+    transition: background 0.5s ease, box-shadow 0.5s ease, border 0.5s ease;
+    padding: 25px;
+    display: inline-block; /* shrinks to fit content */
+    animation: fadeInUp 1s ease forwards;
+    margin-left: 50px;
+    min-height: 23.5em; /* Prevent box from resizing while typing *//* Adjust based on paragraph length */
+    max-width: 700px;    /* Limit width and center horizontally */ 
+    width: 100%;        /* responsive for smaller screens */
+    margin: 0 auto;    /* center the container horizontally */
+}
+
+/* === Dark Mode Frosted Glass === */
+body.dark-mode .intro {
+  background: rgba(20, 20, 30, 0.65); /* dark frosted glass */
+  border: 1px solid rgba(255, 0, 255, 0.3);
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.2);
+  backdrop-filter: blur(14px) saturate(200%);
+  -webkit-backdrop-filter: blur(14px) saturate(200%);
+  color: #f2f2f2;
+}
+
+.intro h3 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.wave {
+    display: inline-block;
+    transform-origin: 70% 70%;
+    animation: waveHand 1.5s infinite;
+}
+
+@keyframes waveHand {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(14deg); }
+    30% { transform: rotate(-8deg); }
+    45% { transform: rotate(14deg); }
+    60% { transform: rotate(-4deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.intro h1{
+    font-size: 50px;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+.name {
+    color: transparent; /* hide the fill */
+    -webkit-text-stroke: 1px black; /* stroke color & thickness */
+    text-shadow: 
+        0 0 5px magenta,
+        0 0 10px magenta,
+        0 0 15px magenta,
+        0 0 20px magenta;
+    font-weight: 700;
+    animation: glowOutline 1.5s ease-in-out infinite;
+}
+
+/* Optional glowing animation */
+@keyframes glowOutline {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px magenta,
+      0 0 10px magenta,
+      0 0 15px magenta,
+      0 0 20px magenta;
+  }
+  50% {
+    text-shadow: 
+      0 0 10px magenta,
+      0 0 20px magenta,
+      0 0 30px magenta,
+      0 0 40px magenta;
+  }
+}
+
+.ctu {
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.ctu:hover {
+    color: magenta;
+    text-shadow: 0 0 10px magenta;
+}
+
+.type {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 30px 0 0 0;
+    color: white;
+    border-right: 2px solid magenta;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    text-align: center;
+    animation: typing 4s steps(30, end) forwards, blink 0.9s infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 540px; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.desc {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 20px auto 0 auto;
+  text-align: justify;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
+  min-height: 6em; /* keeps space so it doesn’t jump while typing */
+   position: relative; /* needed for cursor */
+}
+
+/* blinking cursor */
+.desc::after {
+  content: '|';
+  position: absolute;
+  right: 50; /* end of paragraph */
+  animation: blinks 0.8s infinite;
+  color: #ff00ff;
+}
+
+@keyframes blinks {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+
+.img1 img {
+    max-width: 320px;
+    height: auto;
+    border-radius: 50%;
+    border: 4px solid magenta;
+    box-shadow: 0 0 25px magenta;
+    animation: glow 1s infinite ease-in-out, fadeInImage 1.2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px magenta; }
+    50% { box-shadow: 0 0 40px magenta; }
+}
+
+@keyframes fadeInImage {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width:1200px){
+    .intro{margin-left: 40px;}
+}
+@media (max-width: 1024px) {
+
+.container {
+    flex-direction: column;
+    text-align: center;
+    gap: 3em;
+}
+.intro{
+    margin-left: 0;
+}
+
+.intro h1 {
+    font-size: 42px;
+}
+
+.img1 img {
+    max-width: 250px;
+}
+
+.dashboard {
+    padding: 20px 5%;
+  }
+}
+
+
+

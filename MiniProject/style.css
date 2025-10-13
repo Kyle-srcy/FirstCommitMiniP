@@ -10,6 +10,17 @@ body {  /*  Background Design*/
     background-size: cover;
     color: white;
     overflow-x: hidden;
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+html{
+    scroll-behavior: smooth;
 }
 
 .dashboard {    /*  Dashboard*/
@@ -67,7 +78,7 @@ body {  /*  Background Design*/
     display: none;
 }
 
-.nav a {
+.nav a .dark{
     position: relative;
     display: flex;
     align-items: center;
@@ -78,7 +89,7 @@ body {  /*  Background Design*/
     transition: 0.3s;
 }
 
-.nav a::after {     /*  When Hovered it will give underline effect */
+.nav a .dark::after {     /*  When Hovered it will give underline effect */
     content: '';
     position: absolute;
     left: 0;
@@ -90,11 +101,11 @@ body {  /*  Background Design*/
 }
 
 /* On hover, animate the line */
-.nav a:hover::after {
+.nav a .dark:hover::after {
     width: 100%;
 }
 
-.nav a:hover {
+.nav a .dark:hover {
     color: black;
     text-shadow: 0 0 10px black;
 }
@@ -114,13 +125,14 @@ body {  /*  Background Design*/
 }
 
 .content-container {
-    background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
-    border:black;
-    box-shadow: black;
+    background: rgba(255, 255, 255, 0.15); /* semi-transparent white */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     padding: 40px 20px;
     border-radius: 20px;
     display: inline-block; /* shrinks to fit content */
     text-align: center;
+    backdrop-filter: blur(6px); /* adds frosted glass effect */
 }
 
 .content-container .content h1,
@@ -144,16 +156,18 @@ body {  /*  Background Design*/
     font-size: 1.2rem; 
     margin-top: 10px; 
 } 
-
-.desc { 
-    margin-top: 15px; 
-    max-width: 700px; 
-    color: #ddd; 
-    text-align: center; 
-    line-height: 1.6; 
-    margin-left: auto;
-    margin-right: auto;
+.desc {
+  display: block;
+  margin: auto auto auto auto;
+  max-width: 700px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
 }
+
 
 .btn-glow {     /*  Contact Button*/
     display: inline-flex;
@@ -241,6 +255,7 @@ body {  /*  Background Design*/
 .socials a[title="Facebook"]:hover i { 
     background: linear-gradient(120deg, #0d8cf1, #1877f2, #00c6ff); 
     background-size: 300% 300%; 
+    background-clip: text;
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     animation: gradientMove 3s ease infinite; 
@@ -254,6 +269,7 @@ body {  /*  Background Design*/
 .socials a[title="Messenger"]:hover i { 
     background: linear-gradient(120deg, #0099ff, #a033ff, #ff5280, #ff7061); 
     background-size: 400% 400%; 
+    background-clip: text;
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     animation: gradientMove 3s ease infinite; 
@@ -267,6 +283,7 @@ body {  /*  Background Design*/
 .socials a[title="Gmail"]:hover i { 
     background: linear-gradient(135deg, #ea4335, #fbbc05, #34a853, #4285f4); 
     background-size: 400% 400%; 
+    background-clip: text;
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     animation: gradientMove 4s ease infinite; 
@@ -280,6 +297,7 @@ body {  /*  Background Design*/
 .socials a[title="LinkedIn"]:hover i { 
     background: linear-gradient(135deg, #0a66c2, #00a0dc, #0077b5); 
     background-size: 300% 300%; 
+    background-clip: text;
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     animation: gradientMove 3s ease infinite; 
@@ -293,6 +311,7 @@ body {  /*  Background Design*/
 .socials a[title="Instagram"]:hover i { 
     background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4, #ffcc70); 
     background-size: 500% 500%; 
+    background-clip: text;
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     animation: gradientMove 4s ease infinite; 
@@ -309,21 +328,17 @@ body {  /*  Background Design*/
 } 
 
 @media (max-width:1200px){ 
-    .hoco{margin-left: 40px;} 
+    .main-content{margin-left: 40px;} 
 } 
 
 @media (max-width: 1024px) { 
     .home { flex-direction: column; text-align: center; gap: 3em; } 
-    .hoco{ margin-left: 0; } 
-    .hoco h1 { font-size: 42px; } 
+    .main-content{ margin-left: 0; } 
+    .main-content h1 { font-size: 42px; } 
     .img1 img { max-width: 250px; } 
-    .head { padding: 20px 5%; } 
+    .dashboard { padding: 20px 5%; } 
 } 
 
-@keyframes fadeInUp { 
-    from { transform: translateY(30px); opacity: 0; } 
-    to { transform: translateY(0); opacity: 1; } 
-}
 /* Footer */
 .footer {
     width: 100%;
@@ -338,3 +353,159 @@ body {  /*  Background Design*/
     position: relative;
     z-index: 50;
 }
+
+.heart {
+  font-size: 15px; /* smaller size */
+  display: inline-block;
+  animation: colorChange 1.5s infinite alternate;
+}
+
+.heart::before {
+  content: "";
+}
+
+@keyframes colorChange {
+  0%   { filter: hue-rotate(0deg); }
+  50%  { filter: hue-rotate(120deg); }
+  100% { filter: hue-rotate(240deg); }
+}
+
+
+/*  DARK MODE  */
+body.dark-mode {
+  color: #f8f8f8;
+  transition: background 0.6s ease, color 0.4s ease;
+}
+
+body.dark-mode::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65); /* dark transparent overlay */
+  z-index: -1;
+  transition: background 0.5s ease;
+}
+
+/* Dashboard, Content, and Footer TRANSPARENT BLACK */
+body.dark-mode .dashboard,
+body.dark-mode .content-container,
+body.dark-mode .footer {
+  background: rgba(15, 15, 20, 0.7);
+  border: 1px solid rgba(255, 0, 255, 0.2);
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.25);
+  backdrop-filter: blur(8px);
+  transition: all 0.5s ease;
+}
+
+/*   Make toggle SWITCH white in dark mode */
+body.dark-mode .toggle-btn {
+  color: white;
+}
+
+body.dark-mode .toggle-btn:hover{
+  color: magenta;
+}
+
+/* Text and Links */
+body.dark-mode .nav a {
+  color: #eaeaea;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.2);
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .nav a:hover {
+  color: #ff4ff0;
+}
+
+/* Button glow tweak */
+body.dark-mode .btn-glow {
+  background: rgba(255, 0, 255, 0.15);
+  border-color: #ff4ff0;
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.4);
+  color: #fff;
+}
+
+body.dark-mode .btn-glow:hover {
+  background: magenta;
+  box-shadow: 0 0 40px magenta, 0 0 70px magenta;
+}
+
+/* Footer Text */
+body.dark-mode .footer {
+  color: #f1f1f1;
+  border-top: 1px solid rgba(255, 0, 255, 0.3);
+}
+
+/* Heart animation adjustment */
+body.dark-mode .heart {
+  filter: hue-rotate(180deg);
+}
+/* 🌗 Dark Mode Toggle Switch */
+#darkModeToggle {
+  width: 55px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid black;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 4px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+/* Glowing knob circle */
+#darkModeToggle::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.4);
+}
+
+/* 🌙 Icon positioning */
+#darkModeToggle i {
+  position: relative;
+  font-size: 18px;
+  transition: all 0.4s ease;
+  color: black;
+  z-index: 2;
+  transform: translateX(4px);
+}
+
+/* 🌞 Sun color */
+#darkModeToggle i.bx-sun {
+  color: black;
+}
+
+/* When in Dark Mode 🌙→🌞 */
+body.dark-mode #darkModeToggle {
+  background: rgba(255, 0, 255, 0.3);
+  border-color: rgba(255, 0, 255, 0.5);
+  box-shadow: 0 0 15px magenta;
+  justify-content: flex-end;
+  padding-right: 2px;
+}
+
+body.dark-mode #darkModeToggle::before {
+  left: 28px;
+  background: #ffd700;
+  box-shadow: 0 0 15px #ffd700;
+}
+
+body.dark-mode #darkModeToggle i {
+  transform: translateX(-4px);
+}
+
+
+
+
+

@@ -1,30 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyle John | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pfolio.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
 </head>
 <body>
-
-
-     <section class="home">
-    <div class="hoco">
-      <h3>Hey there! <span class="wave">👋</span></h3>
-      <h1>I'M <span class="name">KYLE JOHN</span></h1>
-      <h4>Passionate student and aspiring developer at 
-        <abbr title="Cebu Technological University">
-          <a href="https://www.ctu.edu.ph/danao/" target="_blank" class="ctu">CTU</a> - Danao Campus
-        </abbr>
-      </h4>
-      <p class="type">TURNING IDEAS INTO CODE, AND CODE INTO REALITY</p>
-      <p class="para">
-        I am a passionate student, always eager to learn and improve my skills. 
-        I enjoy exploring new technologies and experimenting with creative solutions.
-        I’m committed to turning ideas into reality through clean, modern, and interactive web experiences.
-      </p>
+ 
+  <header class="dashboard">
+    <div class="toggle-btn" id="toggleBtn">
+      <i class='bx bx-menu'></i>
     </div>
-  </section>
+    <nav class="nav">
+      <a href="MiniProj.html" class="active"><i class='bx bx-home'></i><span>Home</span></a>
+      <a href="portfolio.html"><i class='bx bx-briefcase'></i><span>Portfolio</span></a>
+      <a href="#"><i class='bx bx-user'></i><span>About</span></a>
+      <a href="#"><i class='bx bx-cog'></i><span>Skills</span></a>
+      
+      <button id="darkModeToggle" class="toggle-dark">
+        <i class='bx bx-moon'></i>
+
+      </button>
+    </nav>
+  </header>
+
+
+  <section class="container">
+    <div class="intro">
+      <h3>Hey there! <span class="wave">👋</span></h3>
+
+      <h1>I'M <span class="name">KYLE JOHN</span></h1>
+
+      <h4>Passionate student and aspiring developer at 
+      <abbr title="Cebu Technological University">
+        <a href="https://www.ctu.edu.ph/danao/" 
+          target="_blank" class="ctu">CTU</a> 
+      </abbr>
+      - Danao Campus
+    </h4>
     
+    <p class="type">TURNING IDEAS INTO CODE, AND CODE INTO REALITY</p>
+
+    <p class="desc" id="typing">
+      I am a passionate student, always eager to learn and improve my skills. 
+      I enjoy exploring new technologies and experimenting with creative solutions.
+      I’m committed to turning ideas into reality through clean, modern, and interactive web experiences.
+    </p>
+  </div>
+</div>
+
+  <div class="img1">
+    <img src="images/mee.jpg" alt="Kyle John">
+  </div>
+</section>
+
+  <footer class="footer">
+    <p>© 2025 Kyle John | Made with <span class="heart">❤️</span>
+      HTML and CSS
+    </p>
+  </footer>
+    
+  <script src="script.js"></script>
 </body>
 </html>
