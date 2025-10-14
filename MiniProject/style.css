@@ -38,9 +38,15 @@ html{
     align-items: center;
     justify-content: space-between;
     padding: 0 50px;
-    transition: all 0.4s ease;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
     z-index: 1000;
+
+    transition: 
+      width 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+      background 0.6s ease,
+      box-shadow 0.6s ease,
+      padding 0.6s ease,
+      gap 0.6s ease;
 }
 
 .dashboard.minimized {  /*  Click to make this small*/
@@ -51,6 +57,8 @@ html{
 }
 
 .dashboard .toggle-btn {    /*  for buttons*/
+    position: relative;
+    bottom: -2.5px;
     font-size: 30px;
     color: white;
     margin-bottom: 5px;
@@ -64,18 +72,31 @@ html{
 }
 
 .dashboard.minimized .toggle-btn {  /*  Click to Rotate*/
-    transform: rotate(180deg);
+    transform: rotate(180deg) scale(1.05);
+}
+
+.dashboard.minimized .nav span {
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
 }
 
 .nav {
     display: flex;
     align-items: center;
     gap: 25px;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
 }
 
-.dashboard.minimized .nav span {
-    display: none;
+.nav a i {
+    font-size: 20px;
+}
+
+.nav a span {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .nav a .dark{
@@ -108,10 +129,6 @@ html{
 .nav a .dark:hover {
     color: black;
     text-shadow: 0 0 10px black;
-}
-
-.nav a i {
-    font-size: 20px;
 }
 
 .home {
