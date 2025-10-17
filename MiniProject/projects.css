@@ -1,0 +1,280 @@
+* { /*  Global*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {  /*  Background Design*/
+    background: url("images/coding.webp") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden;
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.dashboard {    /*  Dashboard*/
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 70px;
+    background: rgba(255, 0, 150, 0.1);
+    border: 1px solid rgba(255, 0, 150, 0.5);
+    box-shadow: 0 0 15px black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+
+    transition: 
+      width 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+      background 0.6s ease,
+      box-shadow 0.6s ease,
+      padding 0.6s ease,
+      gap 0.6s ease;
+}
+
+.dashboard.minimized {  /*  Click to make this small*/
+    height: 70px;
+    width: 400px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.dashboard .toggle-btn {    /*  for buttons*/
+    position: relative;
+    bottom: -2.5px;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 5px;
+    cursor: pointer;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.dashboard .toggle-btn:hover{   /*  Hovering*/
+    color: black;
+}
+
+.dashboard.minimized .toggle-btn {  /*  Click to Rotate*/
+    transform: rotate(180deg) scale(1.05);
+}
+
+.dashboard.minimized .nav span {
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    transition: all 0.5s ease;
+}
+
+.nav a i {
+    font-size: 20px;
+}
+
+.nav a span {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.nav a .dark{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.nav a .dark::after {     /*  When Hovered it will give underline effect */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* distance from text */
+    width: 0%;
+    height: 2px; /* thickness of the line */
+    background: white;
+    transition: width 0.3s ease;
+}
+
+/* On hover, animate the line */
+.nav a .dark:hover::after {
+    width: 100%;
+}
+
+.nav a .dark:hover {
+    color: black;
+    text-shadow: 0 0 10px black;
+}
+
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 50px 60px;
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.15);
+  max-width: 1000px;
+  width: 90%;
+}
+
+/* ---------- PROFILE PICTURE ---------- */
+.profile-pic img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 3px solid magenta;
+  box-shadow: 0 0 25px magenta;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-pic img:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- ABOUT CONTENT ---------- */
+.about-content {
+  flex: 1;
+  max-width: 550px;
+}
+
+.about-content h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 0 10px magenta;
+  margin-bottom: 10px;
+}
+
+.about-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.highlight {
+  color: magenta;
+  text-shadow: 0 0 10px magenta;
+}
+
+.about-content p {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 15px;
+}
+
+/* ---------- INFO BOX ---------- */
+.info {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.info p {
+  margin: 10px 0;
+  color: #fff;
+}
+
+.info i {
+  color: magenta;
+  margin-right: 8px;
+}
+
+/* ---------- BUTTON ---------- */
+.btn-glow {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 25px;
+  border: 2px solid magenta;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px magenta;
+}
+
+.btn-glow:hover {
+  background: magenta;
+  color: #000;
+  box-shadow: 0 0 25px magenta, 0 0 50px magenta;
+  transform: translateY(-3px);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  text-align: center;
+  padding: 25px 10px;
+  font-size: 14px;
+  color: #ccc;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(8px);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .heart {
+  color: magenta;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    padding: 40px 30px;
+  }
+
+  .profile-pic img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about-content h1 {
+    font-size: 2rem;
+  }
+}

@@ -6,6 +6,7 @@
   <title>Kyle John | Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="pfolio.css">
+  <link rel="stylesheet" href="projects.css">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
@@ -17,34 +18,34 @@
       <i class='bx bx-menu'></i>
     </div>
     <nav class="nav">
-      <a href="MiniProj.html" class="active"><i class='bx bx-home'></i><span>Home</span></a>
-      <a href="portfolio.html" class="active"><i class='bx bx-briefcase'></i><span>Portfolio</span></a>
-      <a href="about.html"><i class='bx bx-user'></i><span>About</span></a>
-      <a href="#"><i class='bx bx-cog'></i><span>Skills</span></a>
-      <a href="#"><i class='bx bx-log-in'></i><span>Login</span></a>
-
+      <a href="index.html"><i class='bx bx-home'></i><span>Home</span></a>
+      <a href="portfolio.html" class="active"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
+      <a href="projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
+      <a href="login.html"><i class='bx bx-log-in'></i><span>Login</span></a>
       
-      <button id="darkModeToggle" class="toggle-dark">
+      <div id="darkModeToggle">
         <i class='bx bx-moon'></i>
-
-      </button>
+      </div>
+    </div>
     </nav>
   </header>
 
 
   <section class="container">
     <div class="intro">
+      <div class="img1">
+        <img src="images/mee.jpg" alt="Kyle John">
+      </div>
+
+      <div class="intro-text">
       <h3>Hey there! <span class="wave">👋</span></h3>
-
-      <h1>I'M <span class="name">KYLE JOHN</span></h1>
-
-      <h4>Passionate student and aspiring developer at 
-      <abbr title="Cebu Technological University">
-        <a href="https://www.ctu.edu.ph/danao/" 
-          target="_blank" class="ctu">CTU</a> 
-      </abbr>
-      - Danao Campus
-    </h4>
+      <h1>I'M <span class="name">KYLE JOHN D. VALENZUELA</span></h1>
+      <h4>
+        Passionate student and aspiring developer at 
+        <abbr title="Cebu Technological University">
+          <a href="https://www.ctu.edu.ph/danao/" target="_blank" class="ctu">CTU</a> 
+        </abbr> - Danao Campus
+      </h4>
     
     <p class="type">TURNING IDEAS INTO CODE, AND CODE INTO REALITY</p>
 
@@ -56,12 +57,38 @@
   </div>
 </div>
 
-  <div class="img1">
-    <img src="images/mee.jpg" alt="Kyle John">
-  </div>
-</section>
+   <aside class="divider">
+    <div class="profile-sections">  <!-- Tech & Hobbies Combined Container -->
+      <div class="tech-stack">      <!-- Tech Stack -->
+        <h3>Tech Stacks</h3>
+        <div class="icons">
+          <div class='bx bxl-html5' title="HTML"></div>
+          <div class='bx bxl-css3' title="CSS"></div>
+          <div class='bx bxl-javascript' title="JavaScript"></div>
+          <div class='bx bxl-java' title="Java"></div>
+          <div class="bx bxl-c-plus-plus" title="C++"></div>
+        </div>
+      </div>
 
-  <footer class="footer">
+
+      <div class="hobbies">       <!-- Hobbies & Interests -->  
+        <h3>Hobbies & Interests</h3>
+        <ul>
+          <li>🎮 Playing Online Games</li>
+          <li>🎬 Watching Anime & Movies</li>
+          <li>💻 Exploring New Technologies</li>
+          <li>✍️ Learning Web Development</li>
+        </ul>
+      </div>
+   </aside>
+  </section>
+    
+
+    <div class="date-time" id="dateTime"></div>   <!-- Date & Time -->
+  </div>
+
+
+  <footer class="footer">     <!-- Footer -->
     <p>© 2025 Kyle John | Crafted with 
       <span class="heart">❤️</span> HTML | CSS | JavaScript</p>
     </p>
