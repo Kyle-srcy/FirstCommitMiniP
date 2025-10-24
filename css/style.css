@@ -6,7 +6,7 @@
 }
 
 body {  /*  Background Design*/
-    background: url("images/coding.webp") no-repeat center center fixed;
+    background: url("../images/coding.webp") no-repeat center center fixed;
     background-size: cover;
     color: white;
     overflow-x: hidden;
@@ -142,7 +142,7 @@ html{
 }
 
 .content-container {
-    background: rgba(255, 255, 255, 0.15); /* semi-transparent white */
+    background: rgba(255, 255, 255, 0.30); /* semi-transparent white */
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     padding: 40px 20px;
@@ -155,7 +155,7 @@ html{
 .content-container .content h1,
 .content-container .content p,      /* Change text color to black*/
 .content-container .content h4 {
-    color: white; /* Change to black if needed */
+    color: black; /* Change to black if needed */
 }
 
 .content-container {    /*  Shadow of the text*/
@@ -165,26 +165,31 @@ html{
 .name-glow {
     font-family: 'Orbitron', sans-serif;
     font-size: 3rem;
-    color: white;
-    text-shadow: 0 0 8px #000, 0 0 15px #000;
+    font-weight: 700;
+    color: black;
+    text-shadow: 0 0 8px white, 0 0 15px white;
 }
 
 .tagline { 
     font-size: 1.2rem; 
     margin-top: 10px; 
+    font-weight: bold;
+    text-shadow: 0 0 8px white, 0 0 15px white;
 } 
-.des {
-  display: block;
-  margin: auto auto auto auto;
-  max-width: 700px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.8;
-  letter-spacing: 1px;
-  font-size: 1rem;
-  text-shadow: 0 0 5px rgba(255, 0, 255, 0.3);
-}
 
+.des {
+    display: block;
+    margin: auto auto auto auto;
+    max-width: 700px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-shadow: 0 0 8px white, 0 0 15px white;
+    padding: 15px;
+}
 
 .btn-glow {     /*  Contact Button*/
     display: inline-flex;
@@ -244,6 +249,15 @@ html{
 } 
 
 .socials a i { 
+    display: inline-block; 
+    transition: all 0.5s ease; 
+    color: black; 
+    margin: 30px 0 0 0; 
+    animation: float 3s ease-in-out infinite, gradientMove 5s ease infinite; 
+
+} 
+
+body.dark-mode .socials a i { 
     display: inline-block; 
     transition: all 0.5s ease; 
     color: white; 
@@ -344,33 +358,34 @@ html{
     cursor: pointer; 
 } 
 
-@media (max-width:1200px){ 
-    .main-content{margin-left: 40px;} 
-} 
-
-@media (max-width: 1024px) { 
-    .home { flex-direction: column; text-align: center; gap: 3em; } 
-    .main-content{ margin-left: 0; } 
-    .main-content h1 { font-size: 42px; } 
-    .img1 img { max-width: 250px; } 
-    .dashboard { padding: 20px 5%; } 
-} 
-
 /* Footer */
 .footer {
-    width: 100%;
-    padding: 20px 0;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(8px);
-    text-align: center;
-    color: #fff;
-    font-size: 14px;
-    border-top: 1px solid rgba(255,0,184,0.5);
-    box-shadow: 0 -0 15px rgba(255,0,184,0.3);
-    position: relative;
-    z-index: 50;
+  width: 100%;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  text-align: center;
+  color: #000;
+  font-weight: 900;
+  text-shadow: 0 0 8px white, 0 0 15px white;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 0, 184, 0.3);
+  box-shadow: 0 -0 15px rgba(255,0,184,0.2);
+  position: relative;
+  z-index: 50;
+  transition: all 0.5s ease;
 }
 
+/* 💡 Responsive footer */
+@media (max-width: 600px) {
+  .footer {
+    font-size: 12px;
+    padding: 15px 5px;
+  }
+  .date-time {
+    font-size: 13px;
+  }
+}
 .heart {
   font-size: 15px; /* smaller size */
   display: inline-block;
@@ -414,6 +429,43 @@ body.dark-mode .footer {
   transition: all 0.5s ease;
 }
 
+
+body.dark-mode .content-container .content h1,
+body.dark-mode .content-container .content p,      /* Change text color to black*/
+body.dark-mode .content-container .content h4 {
+    color: white; /* Change to black if needed */
+}
+
+body.dark-mode .content-container {    /*  Shadow of the text*/
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .name-glow {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: black;
+    text-shadow: 0 0 8px black, 0 0 15px black;
+}
+
+body.dark-mode .tagline { 
+    font-size: 1.2rem; 
+    margin-top: 10px; 
+    text-shadow: 0 0 8px black, 0 0 15px black;
+} 
+
+body.dark-mode .des {
+  display: block;
+  margin: auto auto auto auto;
+  max-width: 700px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-shadow: 0 0 8px black, 0 0 15px black;
+  padding: 15px;
+}
+
 /*   Make toggle SWITCH white in dark mode */
 body.dark-mode .toggle-btn {
   color: white;
@@ -450,6 +502,7 @@ body.dark-mode .btn-glow:hover {
 /* Footer Text */
 body.dark-mode .footer {
   color: #f1f1f1;
+  text-shadow: 0 0 8px white, 0 0 15px white;
   border-top: 1px solid rgba(255, 0, 255, 0.3);
 }
 
@@ -457,6 +510,7 @@ body.dark-mode .footer {
 body.dark-mode .heart {
   filter: hue-rotate(180deg);
 }
+
 /* 🌗 Dark Mode Toggle Switch */
 #darkModeToggle {
   width: 55px;
