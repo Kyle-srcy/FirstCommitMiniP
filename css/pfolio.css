@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background: url("../images/coding.webp") no-repeat center center fixed;
+  color: #ffd166; /* changed to gold */
   background-size: cover;
   color: white;
   overflow-x: hidden;
@@ -24,8 +24,7 @@ body.fade-in {
 }
 
 /* ===========================
-   🧭 DASHBOARD NAVIGATION
-=========================== */
+  color: #ffd166; /* changed to gold */
 .dashboard {
   position: fixed;
   top: 20px;
@@ -33,10 +32,10 @@ body.fade-in {
   transform: translateX(-50%);
   width: 90%;
   height: 70px;
-  background: rgba(255, 0, 150, 0.1);
+  color: #ffd166; /* changed to gold */
   border: 1px solid rgba(255, 0, 150, 0.5);
   border-radius: 20px;
-  box-shadow: 0 0 15px black;
+  color: #ffd166; /* changed to gold */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -382,29 +381,81 @@ body.dark-mode .intro {
   filter: drop-shadow(0 0 30px #ff00b8);
 }
 
-/* 🌟 Star effect animation */
-.star {
+/* 🌟 Rating stars (appears above each tech icon) */
+.rating-stars {
   position: absolute;
-  color: #fff;
-  font-size: 12px;
-  opacity: 0.8;
-  pointer-events: none;
-  animation: starPop 1s ease-out forwards;
-  text-shadow: 0 0 5px #fff, 0 0 10px #ff00b8;
+  left: 50%;
+  top: 5px; /* sits above the icon */
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  pointer-events: auto;
+  z-index: 9999;
+}
+
+/* hidden by default, reveal on icon hover with a little lift */
+.rating-stars {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-6px) scale(0.9);
+  transition: opacity 180ms ease, transform 200ms cubic-bezier(.2,.9,.3,1);
+  will-change: opacity, transform;
+}
+
+.icons i:hover .rating-stars,
+.icons div[class^='bx']:hover .rating-stars {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-28px) scale(1);
+}
+
+.rating-stars .star {
+  font-size: 18px;
+  color: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: color 0.18s ease, transform 0.12s ease;
+  text-shadow: 0 0 3px rgba(255,255,255,0.1);
+  position: relative; /* needed for half-star pseudo element */
+  display: inline-block;
+}
+
+.rating-stars .star.filled {
+  color: #ff00b8;
+  transform: translateY(-4px) scale(1.15);
+  text-shadow: 0 0 8px #ff00b8;
+}
+
+/* show left-half filled when .half is applied */
+.rating-stars .star::before {
+  content: '★';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  overflow: hidden;
+  color: #ff00b8;
+}
+
+.rating-stars .star.half::before {
+  width: 50%;
+}
+
+/* pop animation for individual stars when hovered */
+.rating-stars .star:hover {
+  transform: translateY(-6px) scale(1.25);
+  color: #ff66d6;
+  text-shadow: 0 0 10px #ff66d6;
+  transition: transform 140ms cubic-bezier(.2,.9,.3,1), color 120ms;
 }
 
 @keyframes starPop {
-  0% {
-    transform: scale(0) translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.2) translateY(-20px);
-  }
-  100% {
-    transform: scale(0.8) translateY(-50px);
-    opacity: 0;
-  }
+  0% { transform: translateY(0) scale(0.8); opacity: 0.0 }
+  60% { transform: translateY(-8px) scale(1.18); opacity: 1 }
+  100% { transform: translateY(-6px) scale(1.05); opacity: 1 }
+}
+
+/* optional class to trigger a quick pop (can be added by JS)
+   If you want JS-triggered pop on hover enter, apply .popped to the star. */
+.rating-stars .star.popped {
+  animation: starPop 220ms ease forwards;
 }
 
 

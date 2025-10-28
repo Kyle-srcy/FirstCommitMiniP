@@ -1,3 +1,11 @@
+<?php
+session_start();
+// Require login
+if (!isset($_SESSION['user_id'])) {
+  header('Location: login.php');
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +21,6 @@
 
 </head>
 
-
 <body>
  
   <header class="dashboard">
@@ -21,10 +28,10 @@
       <i class='bx bx-menu'></i>
     </div>
       <nav class="nav">
-        <a href="../html/index.html" class="active"><i class='bx bx-home'></i><span>Home</span></a>
-        <a href="../html/portfolio.html"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
-        <a href="../html/projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
-        <a href="../html/login.html"><i class='bx bx-log-out'></i><span>Log-out</Log-out></span></a>
+        <a href="index.php" class="active"><i class='bx bx-home'></i><span>Home</span></a>
+        <a href="portfolio.html"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
+        <a href="projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
+        <a href="../auth/logout.php"><i class='bx bx-log-out'></i><span>Logout</span></a>
       
           <div id="darkModeToggle">
             <i class='bx bx-moon'></i>

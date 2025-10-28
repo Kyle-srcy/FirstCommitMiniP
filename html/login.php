@@ -15,7 +15,7 @@ $registered = isset($_GET['registered']);
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Login — MiniProject</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/pfolio.css">
     <link rel="stylesheet" href="../css/login.css">
@@ -29,7 +29,7 @@ $registered = isset($_GET['registered']);
         <p class="lead">Enter your email and password to access the dashboard.</p>
 
         <?php if ($registered): ?>
-          <p class="error-msg" style="color:#90ee90">Registration successful. Please sign in.</p>
+          <p class="error-msg" style="color:#90ee90">Please sign in.</p>
         <?php endif; ?>
 
         <?php if ($error): ?>
