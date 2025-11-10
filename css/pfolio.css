@@ -253,7 +253,7 @@ body.dark-mode .intro {
   display: flex;
   justify-content: flex-end;
   top: -130px; 
-  right: -3px; 
+  right: -30px; 
 }
 
 /* === CTU Text === */

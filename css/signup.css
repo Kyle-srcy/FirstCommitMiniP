@@ -1,0 +1,183 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e1b4b, #581c87, #000000);
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+/* Background Blobs */
+.background-container {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: blobMove 10s infinite alternate;
+}
+
+.blob-1 { background: #ff6ec7; top: -50px; left: -50px; }
+.blob-2 { background: #3b82f6; top: 150px; right: -80px; animation-delay: 3s; }
+.blob-3 { background: #facc15; bottom: -100px; left: 50%; transform: translateX(-50%); animation-delay: 6s; }
+
+@keyframes blobMove {
+    0% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(50px, -50px) scale(1.2); }
+    100% { transform: translate(-30px, 30px) scale(0.9); }
+}
+
+/* Glassmorphism Container */
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(25px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Form styling */
+.glass-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form header */
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.form-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+}
+
+/* Input fields */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(255,255,255,0.25);
+}
+
+/* Submit button */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    color: #667eea;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 35px rgba(0,0,0,0.35);
+    background: linear-gradient(135deg, rgba(255,255,255,1), rgba(255,255,255,0.85));
+}
+
+/* Footer links */
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+}
+
+.form-footer a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    color: #c0aaff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .form-header h1 {
+        font-size: 28px;
+    }
+
+    input {
+        padding: 12px 14px;
+    }
+
+    .submit-btn {
+        padding: 12px;
+    }
+}

@@ -1,62 +1,79 @@
-<?php
-session_start();
-// If already logged in, send to protected index
-if (!empty($_SESSION['user_id'])) {
-  header('Location: index.php');
-  exit;
-}
-
-// Read any messages from query params
-$error = $_GET['error'] ?? null;
-$registered = isset($_GET['registered']);
-?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Login — MiniProject</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/pfolio.css">
-    <link rel="stylesheet" href="../css/login.css">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <main class="login-wrap">
-      <form action="../auth/login.php" method="post" class="login-card">
-        <h2>Sign in</h2>
-        <p class="lead">Enter your email and password to access the dashboard.</p>
+<head>
 
-        <?php if ($registered): ?>
-          <p class="error-msg" style="color:#90ee90">Registration successful. Please sign in.</p>
-        <?php endif; ?>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pfolio.css">
+  <link rel="stylesheet" href="../css/projects.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-        <?php if ($error): ?>
-          <p class="error-msg"><?php echo htmlspecialchars($error); ?></p>
-        <?php endif; ?>
 
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required placeholder="you@example.com">
+</head>
+
+<body>
+
+  <div class="background-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="main-container">
+    <div class="login-card">
+      <div class="header">
+        <h1>Welcome Back</h1>
+        <p>Sign in to your account to continue</p>
+      </div>
+
+      <form class="form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input id="email" type="email" placeholder="you@example.com" required />
         </div>
 
-        <div class="form-row">
+        <div class="form-group">
           <label for="password">Password</label>
-          <input id="password" name="password" type="password" required placeholder="Your password">
+          <input id="password" type="password" placeholder="••••••••" required />
         </div>
 
-        <div class="actions">
-          <label class="remember"><input type="checkbox" name="remember"> Remember me</label>
-          <a href="register.php">Create account</a>
+        <div class="form-footer">
+          <label class="checkbox-group">
+            <input type="checkbox" />
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot-password">Forgot password?</a>
         </div>
 
-        <button type="submit" class="btn-primary">Sign in</button>
-
-        <p style="margin-top:12px;color:rgba(255,255,255,0.65)">By signing in you agree to the site's terms.</p>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Sign In
+        </button>
       </form>
-    </main>
 
-    <script src="../js/script.js"></script>
-  </body>
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-text">or</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <button class="social-btn" onclick="handleGoogleClick()">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.545 10.239v3.821h5.445c-0.712 2.315-2.647 3.972-5.445 3.972-3.332 0-6.033-2.701-6.033-6.033s2.701-6.033 6.033-6.033c1.498 0 2.866 0.549 3.921 1.453l2.814-2.814c-1.733-1.616-4.049-2.605-6.735-2.605-5.537 0-10.032 4.495-10.032 10.032s4.495 10.032 10.032 10.032c5.532 0 10.027-4.495 10.027-10.027 0-0.67-0.067-1.325-0.196-1.963h-9.831v0z" />
+        </svg>
+        Continue with Google
+      </button>
+
+      <p class="signup-text">
+        Don't have an account?
+        <a href="../html/signup.html" class="signup-link">Sign up</a>
+      </p>
+    </div>
+  </div>
+  
+  <script src="../js/login.js"></script>
+</body>
 </html>
