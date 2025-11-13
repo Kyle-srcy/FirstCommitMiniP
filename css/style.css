@@ -577,6 +577,37 @@ body.dark-mode #darkModeToggle i {
 }
 
 
+/*  CRUD File Table Design  */
+.file-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.file-table th, .file-table td {
+  padding: 12px 15px;
+  text-align: center;
+  color: white;
+}
+
+.file-table th {
+  background: rgba(255,255,255,0.2);
+}
+
+.file-table tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+
+.file-table button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 2px;
+}
 
 
 

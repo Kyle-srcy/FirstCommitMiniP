@@ -493,25 +493,6 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* Social button */
-.social-btn {
-  height: 48px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  color: #fff;
-  font-size: 15px;
-  transition: 0.25s ease;
-}
-
-.social-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
 /* Sign up link */
 .signup-text {
   text-align: center;

@@ -12,7 +12,6 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-
 </head>
 
 <body>
@@ -27,18 +26,18 @@
     <div class="login-card">
       <div class="header">
         <h1>Welcome Back</h1>
-        <p>Sign in to your account to continue</p>
+          <p>Sign in to your account to continue</p>
       </div>
 
-      <form class="form" action="../login.php" method="POST">
+      <form class="form" action="../login.php" method="POST"> 
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input id="email" type="email" placeholder="you@example.com" required />
+          <input id="email" type="email" placeholder="you@example.com" name="email" required />
         </div>
 
         <div class="form-group">
           <label for="password">Password</label>
-          <input id="password" type="password" placeholder="••••••••" required />
+          <input id="password" type="password" name="password" placeholder="••••••••" required />
         </div>
 
         <div class="form-footer">
@@ -59,13 +58,6 @@
         <span class="divider-text">or</span>
         <div class="divider-line"></div>
       </div>
-
-      <button class="social-btn" onclick="handleGoogleClick()">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12.545 10.239v3.821h5.445c-0.712 2.315-2.647 3.972-5.445 3.972-3.332 0-6.033-2.701-6.033-6.033s2.701-6.033 6.033-6.033c1.498 0 2.866 0.549 3.921 1.453l2.814-2.814c-1.733-1.616-4.049-2.605-6.735-2.605-5.537 0-10.032 4.495-10.032 10.032s4.495 10.032 10.032 10.032c5.532 0 10.027-4.495 10.027-10.027 0-0.67-0.067-1.325-0.196-1.963h-9.831v0z" />
-        </svg>
-        Continue with Google
-      </button>
 
       <p class="signup-text">
         Don't have an account?

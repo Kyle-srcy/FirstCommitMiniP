@@ -1,70 +1,50 @@
 <?php
 session_start();
-require_once "db.php"; // Make sure this file connects properly to your MySQL database
+require_once "db.php";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Collect and sanitize form data
     $fullname = trim($_POST['fullname']);
     $email = trim($_POST['email']);
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
+    $password = trim($_POST['password']);
+    $confirm_password = trim($_POST['confirm_password']);
 
-    // Basic validation
     if (empty($fullname) || empty($email) || empty($password) || empty($confirm_password)) {
-        $_SESSION['error'] = "All fields are required!";
-        header("Location: register.php");
-        exit;
-    }
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $_SESSION['error'] = "Invalid email format!";
-        header("Location: register.php");
-        exit;
+        die("All fields are required.");
     }
 
     if ($password !== $confirm_password) {
-        $_SESSION['error'] = "Passwords do not match!";
-        header("Location: register.php");
-        exit;
+        die("Passwords do not match!");
     }
 
-    // Check if email already exists
-    $stmt = $mysqli->prepare("SELECT id FROM users WHERE email = ? LIMIT 1");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
+    // Check email
+    $check_email = $conn->prepare("SELECT id FROM users WHERE email = ?");
+    $check_email->bind_param("s", $email);
+    $check_email->execute();
+    $check_email->store_result();
 
-    if ($stmt->num_rows > 0) {
-        $_SESSION['error'] = "Email is already registered!";
-        $stmt->close();
-        $mysqli->close();
-        header("Location: register.php");
-        exit;
+    if ($check_email->num_rows > 0) {
+        die("Email already registered. Try logging in instead.");
     }
+    $check_email->close();
 
-    $stmt->close();
-
-    // Hash password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Insert into database
-    $stmt = $mysqli->prepare("INSERT INTO users (fullname, email, password) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (fullname, email, password) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $fullname, $email, $hashed_password);
 
     if ($stmt->execute()) {
-        $_SESSION['success'] = "Registration successful! You can now log in.";
-        header("Location: login.php");
+        // ✅ Save name in session and redirect
+        $_SESSION["signup_name"] = $fullname;
+        header("Location: signup_success.php");
+        exit;
     } else {
-        $_SESSION['error'] = "Database error: " . $stmt->error;
-        header("Location: register.php");
+        echo "Error: " . $stmt->error;
     }
 
     $stmt->close();
-    $mysqli->close();
+    $conn->close();
 } else {
-    // Redirect if accessed directly
-    header("Location: register.php");
-    exit;
+    header("Location: signup.html");
+    exit();
 }
-?>

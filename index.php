@@ -4,10 +4,10 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/pfolio.css">
-  <link rel="stylesheet" href="../css/projects.css">
+  <title>Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pfolio.css">
+  <link rel="stylesheet" href="css/projects.css">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
@@ -21,10 +21,10 @@
       <i class='bx bx-menu'></i>
     </div>
       <nav class="nav">
-        <a href="../html/index.html" class="active"><i class='bx bx-home'></i><span>Home</span></a>
-        <a href="../html/portfolio.html"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
-        <a href="../html/projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
-        <a href="../html/login.html"><i class='bx bx-log-out'></i><span>Log-out</Log-out></span></a>
+        <a href="html/index.html" class="active"><i class='bx bx-home'></i><span>Home</span></a>
+        <a href="html/portfolio.html"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
+        <a href="html/projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
+        <a href="html/login.html"><i class='bx bx-log-out'></i><span>Log-out</Log-out></span></a>
       
           <div id="darkModeToggle">
             <i class='bx bx-moon'></i>
@@ -71,7 +71,7 @@
   </footer>
 
 
-  <script src="../js/script.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
 </html>

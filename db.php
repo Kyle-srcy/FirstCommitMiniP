@@ -1,13 +1,14 @@
 <?php
 $host = "localhost";
-$user = "root";       // default XAMPP username
-$pass = "";           // default XAMPP password is empty
-$db   = "project";    // your database name
+$user = "root";
+$pass = "";
+$db   = "project";
 
-$mysqli = new mysqli($host, $user, $pass, $db);
+// Create connection
+$conn = new mysqli($host, $user, $pass, $db);
 
 // Check connection
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>
