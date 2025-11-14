@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["signup_name"])) {
-    header("Location: html/signup.html");
+    header("Location: html/signup.php");
     exit;
 }
 
@@ -77,7 +77,7 @@ unset($_SESSION["signup_name"]);
   <div class="message-box">
     <h1>Welcome, <?php echo htmlspecialchars($fullname); ?>!</h1>
     <p>Your account has been successfully created.</p>
-    <a href="html/login.html">Go to Login</a>
+    <a href="index.php">Go to Login</a>
   </div>
 </div>
 

@@ -61,7 +61,7 @@
 
       <p class="signup-text">
         Don't have an account?
-        <a href="html/signup.html" class="signup-link">Sign up</a>
+        <a href="html/signup.php" class="signup-link">Sign up</a>
       </p>
     </div>
   </div>

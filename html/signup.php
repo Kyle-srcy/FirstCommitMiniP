@@ -47,7 +47,7 @@
         <button type="submit" class="submit-btn">Sign Up</button>
 
         <div class="form-footer">
-            Already have an account? <a href="../login.html">Sign In</a>
+            Already have an account? <a href="../login.php">Sign In</a>
         </div>
     </form>
 </div>
