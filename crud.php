@@ -22,7 +22,7 @@
       <a href="../html/portfolio.html"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
       <a href="../html/projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
       <a href="../html/crud.html" class="active"><i class='bx bx-folder'></i><span>File Manager</span></a>
-      <a href="../html/login.html"><i class='bx bx-log-out'></i><span>Logout</span></a>
+      <a href="../index.php"><i class='bx bx-log-out'></i><span>Logout</span></a>
       
       <div id="darkModeToggle"><i class='bx bx-moon'></i></div>
     </nav>
@@ -35,7 +35,7 @@
           <h1 class="name-glow">File Management Dashboard 📂</h1>
           <p class="tagline">Upload, edit, and manage your files in style.</p>
 
-          <form action="../crud_create.php" method="POST" enctype="multipart/form-data" class="upload-form">
+          <form action="crud_create.php" method="POST" enctype="multipart/form-data" class="upload-form">
             <input type="text" name="filename" placeholder="Enter File Name" required>
             <input type="file" name="uploaded_file" required>
             <button type="submit">Upload File</button>

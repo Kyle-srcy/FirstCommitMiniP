@@ -22,7 +22,7 @@
       <a href="../html/portfolio.html"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
       <a href="../html/projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
       <a href="../html/crud.html" class="active"><i class='bx bx-folder'></i><span>File Manager</span></a>
-      <a href="../html/login.html"><i class='bx bx-log-out'></i><span>Logout</span></a>
+      <a href="../index.php"><i class='bx bx-log-out'></i><span>Logout</span></a>
       
       <div id="darkModeToggle"><i class='bx bx-moon'></i></div>
     </nav>
@@ -42,9 +42,9 @@
           </form>
 
           <div class="table-container">
-            <h3>Uploaded Files</h3>
-            <iframe src="../crud_read.php"></iframe>
-          </div>
+                <h3>Uploaded Files</h3>
+                    <?php include "crud_read.php"; ?>
+            </div>
         </div>
       </div>
     </section>
