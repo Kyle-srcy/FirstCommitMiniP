@@ -74,3 +74,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 });
+
+// Delete Function
+
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('deleted') === '1') {
+        const alertBox = document.getElementById('deleteAlert');
+        alertBox.style.display = 'block';
+
+        // Auto fade-out after 2 seconds
+        setTimeout(() => {
+            alertBox.style.display = 'none';
+            // Remove the query parameter from URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }, 2000);
+    }
+});

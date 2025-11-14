@@ -41,10 +41,10 @@
             <button type="submit">Upload File</button>
           </form>
 
-          <div class="table-container">
-            <h3>Uploaded Files</h3>
-            <iframe src="../crud_read.php"></iframe>
-          </div>
+            <div class="table-container">
+                <h3>Uploaded Files</h3>
+                    <?php include "crud_read.php"; ?>
+            </div>
         </div>
       </div>
     </section>

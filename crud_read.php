@@ -32,7 +32,8 @@ $result = $stmt->get_result();
             <td><?= $row['uploaded_at'] ?></td>
             <td>
                 <a href="crud_update.php?id=<?= $row['id'] ?>">Edit</a> |
-                <a href="crud_delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                <a href="crud_delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this file?');">Delete</a>
+
             </td>
         </tr>
     <?php endwhile; ?>
@@ -40,3 +41,28 @@ $result = $stmt->get_result();
     <tr><td colspan="5">No files uploaded yet.</td></tr>
 <?php endif; ?>
 </table>
+
+<!-- Centered Alert -->
+<div id="deleteAlert" style="
+        display:none;
+        position:fixed;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        background:rgba(0,0,0,0.85);
+        color:#00ffff;
+        padding:25px 40px;
+        border-radius:12px;
+        box-shadow:0 0 20px rgba(0,255,255,0.5);
+        font-size:18px;
+        font-weight:bold;
+        text-align:center;
+        z-index:9999;"
+>
+    File deleted successfully!
+</div>
+
+<script src="js/crud.js" defer></script>
+
+
+
