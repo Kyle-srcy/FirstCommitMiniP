@@ -18,13 +18,10 @@ body {  /*  Background Design*/
     to { transform: translateY(0); opacity: 1; }
 }
 
-
 html{
     scroll-behavior: smooth;
 }
 
-
-/* Glassmorphic CRUD Dashboard */
 .main-content {
   padding: 40px;
 }
