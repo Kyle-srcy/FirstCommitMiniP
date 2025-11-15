@@ -24,8 +24,8 @@
 
       <nav class="nav">
         <a href="../html/index.html" class="active"><i class='bx bx-home'></i><span>Home</span></a>
-        <a href="../html/portfolio.html"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
-        <a href="../html/projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
+        <a href="../html/portfolio.php"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
+        <a href="../html/projects.php"><i class='bx bx-briefcase'></i><span>Projects</span></a>
         <a href="/crud.php"><i class='bx bx-folder'></i><span>File Manager</span></a>
         <a href="/index.php"><i class='bx bx-log-out'></i><span>Log-out</Log-out></span></a>
       
