@@ -50,10 +50,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 
-<h2 style="text-align:center; color:white; margin-bottom:20px;">Edit File</h2>
+    <div style="
+        display:flex; 
+        justify-content:center; 
+        align-items:center; 
+        flex-direction:column;
+        min-height:80vh;    ">
 
-<div style="display:flex; justify-content:center; align-items:center; flex-direction:column;">
-    <form id="editForm" method="POST" enctype="multipart/form-data" style="display:flex; flex-direction:column; gap:15px; width:100%; max-width:450px; background: rgba(0,0,0,0.6); padding:20px; border-radius:12px; box-shadow: 0 0 15px rgba(0,255,255,0.4);">
+    <h2 style="
+        text-align:center; 
+        color:white; 
+        margin-bottom:20px; ">  Edit File
+    </h2>
+
+
+    <form id="editForm" method="POST" enctype="multipart/form-data" 
+        style="
+        display:flex; 
+        flex-direction:column; 
+        gap:15px; 
+        width:100%; 
+        max-width:450px; 
+        background: rgba(0,0,0,0.6); 
+        padding:20px; 
+        border-radius:12px; 
+        box-shadow: 0 0 15px rgba(0,255,255,0.4);">
+
         <label style="color:white; font-weight:bold;">File Name:</label>
         <input type="text" name="filename" value="<?= htmlspecialchars($file['filename']) ?>" required style="padding:10px; border-radius:6px; border:none; outline:none;">
 
@@ -89,5 +111,25 @@ editForm.addEventListener('submit', function(e) {
     });
 });
 </script>
+<style>
+* { /*  Global*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
 
+body {  /*  Background Design*/
+    background: url("images/coding.webp") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden;
+    animation: fadeInUp 1s ease forwards;
+}
 
+@keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+</style>
