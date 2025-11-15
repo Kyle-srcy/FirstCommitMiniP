@@ -19,8 +19,8 @@
     <div class="toggle-btn" id="toggleBtn"><i class='bx bx-menu'></i></div>
     <nav class="nav">
       <a href="html/index.html"><i class='bx bx-home'></i><span>Home</span></a>
-      <a href="html/portfolio.html"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
-      <a href="html/projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
+      <a href="portfolio.html"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
+      <a href="projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
       <a href="crud.php" class="active"><i class='bx bx-folder'></i><span>File Manager</span></a>
       <a href="index.php"><i class='bx bx-log-out'></i><span>Logout</span></a>
       
