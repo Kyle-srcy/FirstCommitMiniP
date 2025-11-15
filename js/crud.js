@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const newName = document.getElementById("editName").value.trim();
       if (newName === "") return alert("Enter a valid name.");
 
-      fetch(`../crud_update.php?id=${fileId}&name=${encodeURIComponent(newName)}`)
+      fetch(`../crud.php?id=${fileId}&name=${encodeURIComponent(newName)}`)
         .then(() => {
           modal.remove();
           iframe.src = iframe.src;

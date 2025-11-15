@@ -24,7 +24,7 @@ $stmt->bind_param("ii", $id, $_SESSION['user_id']);
 $stmt->execute();
 
 // Redirect back with success flag
-header("Location: crud_read.php?deleted=1");
+header("Location: crud.php?deleted=1");
 exit();
 ?>
 
