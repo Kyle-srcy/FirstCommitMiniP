@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt = $conn->prepare("UPDATE files SET filename=?, filepath=? WHERE id=? AND uploaded_by=?");
     $stmt->bind_param("ssii", $newname, $filepath, $id, $_SESSION['user_id']);
     if ($stmt->execute()) {
-        header("Location: crud_read.php?updated=1"); // redirect back to main page
+        header("Location: /crud_read.php?updated=1"); // redirect back to main page
         exit;
     } else {
         die("Database error: " . $stmt->error);
@@ -81,7 +81,7 @@ editForm.addEventListener('submit', function(e) {
     .then(response => response.text())
     .then(data => {
         // Redirect to table after successful update
-        window.location.href = 'crud_read.php';
+        window.location.href = '/crud_read.php';
     })
     .catch(err => {
         alert('Error updating file!');

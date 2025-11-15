@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->bind_param("ssi", $filename, $target_file, $uploaded_by);
 
         if ($stmt->execute()) {
-            header("Location: crud.php");
+            header("Location: /crud.php");
             exit;
         } else {
             die("Database error: " . $stmt->error);
