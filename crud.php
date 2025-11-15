@@ -18,11 +18,11 @@
   <header class="dashboard">
     <div class="toggle-btn" id="toggleBtn"><i class='bx bx-menu'></i></div>
     <nav class="nav">
-      <a href="../html/index.html"><i class='bx bx-home'></i><span>Home</span></a>
-      <a href="../html/portfolio.html"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
-      <a href="../html/projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
-      <a href="../html/crud.php" class="active"><i class='bx bx-folder'></i><span>File Manager</span></a>
-      <a href="../index.php"><i class='bx bx-log-out'></i><span>Logout</span></a>
+      <a href="html/index.html"><i class='bx bx-home'></i><span>Home</span></a>
+      <a href="html/portfolio.html"><i class='bx bx-id-card'></i><span>Portfolio</span></a>
+      <a href="html/projects.html"><i class='bx bx-briefcase'></i><span>Projects</span></a>
+      <a href="crud.php" class="active"><i class='bx bx-folder'></i><span>File Manager</span></a>
+      <a href="index.php"><i class='bx bx-log-out'></i><span>Logout</span></a>
       
       <div id="darkModeToggle"><i class='bx bx-moon'></i></div>
     </nav>
@@ -35,15 +35,15 @@
           <h1 class="name-glow">File Management Dashboard 📂</h1>
           <p class="tagline">Upload, edit, and manage your files in style.</p>
 
-          <form action="../crud_create.php" method="POST" enctype="multipart/form-data" class="upload-form">
+          <form action="crud_create.php" method="POST" enctype="multipart/form-data" class="upload-form">
             <input type="text" name="filename" placeholder="Enter File Name" required>
             <input type="file" name="uploaded_file" required>
             <button type="submit">Upload File</button>
           </form>
 
-          <div class="table-container">
+            <div class="table-container">
                 <h3>Uploaded Files</h3>
-                    <?php include "../crud_read.php"; ?>
+                    <?php include "crud_read.php"; ?>
             </div>
         </div>
       </div>
@@ -56,8 +56,8 @@
     </p>
   </footer>
 
-<script src="../js/script.js"></script>
-<script src="../js/crud.js"></script>
+<script src="js/script.js"></script>
+<script src="js/crud.js"></script>
 
 </body>
 </html>
