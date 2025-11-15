@@ -43,7 +43,7 @@
 
           <div class="table-container">
                 <h3>Uploaded Files</h3>
-                    <?php include "crud_read.php"; ?>
+                    <?php include "../crud_read.php"; ?>
             </div>
         </div>
       </div>
