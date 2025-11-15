@@ -56,8 +56,9 @@
     </p>
   </footer>
 
-<script src="js/script.js"></script>
+
 <script src="js/crud.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
